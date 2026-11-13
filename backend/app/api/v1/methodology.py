@@ -1,0 +1,58 @@
+"""Methodology documentation endpoint."""
+
+from typing import Dict, Any
+from fastapi import APIRouter
+
+from app.config import settings
+
+router = APIRouter(prefix="", tags=["Methodology"])
+
+
+@router.get(
+    "/methodology",
+    summary="Get scientific methodology, sensor differences, and harmonization status",
+)
+def get_methodology() -> Dict[str, Any]:
+    """Retrieve complete scientific methodology, limitations, and harmonization roadmap."""
+    return {
+        "title": "Burn Calendar Scientific Methodology & Harmonization Framework",
+        "version": settings.METHODOLOGY_VERSION,
+        "harmonization_status": settings.HARMONIZATION_STATUS,
+        "spatial_framework": {
+            "aggregation_grid": "0.1 degree equal-angle (~11 km at equator)",
+            "aoi_support": "Arbitrary polygon boundaries and bounding boxes anywhere on Earth",
+            "active_cell_day_definition": (
+                "An active cell-day is recorded when at least one valid hotspot detection occurs "
+                "within a specific 0.1° grid cell on a given calendar date."
+            ),
+        },
+        "sensor_differences": {
+            "modis": {
+                "nominal_pixel_resolution": "1000 m at nadir",
+                "satellites": ["Terra (10:30 AM/PM equatorial overpass)", "Aqua (01:30 AM/PM equatorial overpass)"],
+                "confidence_scale": "0 - 100 integer (nominal >= 30, high >= 80)",
+                "archive_period": "2000 - present",
+            },
+            "viirs": {
+                "nominal_pixel_resolution": "375 m at nadir (I-band)",
+                "satellites": ["Suomi-NPP (01:30 AM/PM)", "NOAA-20 (01:30 AM/PM, 50-min separation)", "NOAA-21 (01:30 AM/PM)"],
+                "confidence_scale": "categorical ('low', 'nominal', 'high')",
+                "archive_period": "2012 - present",
+            },
+        },
+        "harmonization_roadmap": {
+            "reference_standard": "Aqua MODIS during valid overlap periods (2012–2024)",
+            "approach": (
+                "Monthly geographic tile-level calibration using robust median ratios and calibration percentiles. "
+                "No synthetic scaling factors are applied until empirical leave-one-year-out validation is completed."
+            ),
+            "current_phase": "Phase 1: Multi-sensor raw aggregation with explicit provenance and uncertainty tracking.",
+            "next_phase": "Phase 2: Leave-one-year-out empirical calibration and forward temporal validation.",
+        },
+        "scientific_caveats": [
+            "Hotspot detections are satellite pixels with thermal anomalies; they are not confirmed fire events or burned area.",
+            "Detection is subject to cloud obscuration, dense canopy cover, and orbital viewing geometry.",
+            "A missing observation date indicates a satellite data gap and must not be interpreted as zero fire activity.",
+            "More detections from VIIRS do not necessarily mean more fires due to its 375m pixel sensitivity.",
+        ],
+    }
