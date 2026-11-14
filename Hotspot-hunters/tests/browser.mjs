@@ -1,3 +1,7 @@
+import fs from 'node:fs';
+import {fileURLToPath} from 'node:url';
+const output=fileURLToPath(new URL('../../.work/browser-smoke/',import.meta.url));fs.mkdirSync(output,{recursive:true});
+const url=process.env.HOTSPOT_TEST_URL??'http://127.0.0.1:5173';
 import {chromium} from 'playwright';
 import assert from 'node:assert/strict';
 import {PNG} from 'pngjs';
@@ -5,9 +9,10 @@ const browser=await chromium.launch({channel:'chrome',headless:true,args:['--ena
 const page=await browser.newPage({viewport:{width:1440,height:900},deviceScaleFactor:1});
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
 page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
-await page.goto('http://127.0.0.1:5173');await page.waitForTimeout(5000);
+try {
+await page.goto(url);await page.waitForTimeout(5000);
 assert.equal(await page.locator('canvas').count(),1);
-await page.waitForTimeout(800);await page.screenshot({path:'tests/desktop-entry.png'});
+await page.waitForTimeout(800);await page.screenshot({path:output+'desktop-entry.png'});
 await page.getByRole('button',{name:'EXPLORE THE EARTH',exact:true}).click();
 await page.getByRole('button',{name:'Find a place on Earth'}).click();
 await page.locator('#region-search').fill('Amazon');
@@ -27,7 +32,7 @@ await page.locator('.observation-card').waitFor();
 assert.ok(await page.getByText('Native confidence',{exact:true}).isVisible());
 await page.getByRole('button',{name:'Close observation'}).click();
 await page.getByLabel('Visualization layer').selectOption('density');await page.waitForTimeout(500);
-await page.waitForTimeout(800);await page.screenshot({path:'tests/desktop-explorer.png'});
+await page.waitForTimeout(800);await page.screenshot({path:output+'desktop-explorer.png'});
 await page.getByLabel('Visualization layer').selectOption('clusters');await page.waitForTimeout(300);
 await page.getByLabel('Visualization layer').selectOption('points');
 await page.getByRole('button',{name:/TIME$/}).click();
@@ -37,30 +42,36 @@ await page.getByLabel('Year',{exact:true}).selectOption('2011');
 assert.equal(await page.getByRole('button',{name:'VIIRS · FROM 2012'}).isDisabled(),true);
 await page.getByLabel('Year',{exact:true}).selectOption('2024');
 await page.getByRole('button',{name:'Historical trends'}).click();await page.getByRole('button',{name:'Unusual periods'}).click();await page.getByRole('button',{name:'Monthly rhythm'}).click();
-await page.waitForTimeout(800);await page.screenshot({path:'tests/desktop-calendar.png'});
+await page.waitForTimeout(800);await page.screenshot({path:output+'desktop-calendar.png'});
 await page.getByRole('button',{name:'Play timeline'}).click();await page.waitForTimeout(1800);assert.notEqual(await page.getByLabel('Month',{exact:true}).inputValue(),'2');await page.getByRole('button',{name:'Pause timeline'}).click();
 await page.getByRole('button',{name:/COMPARE$/}).click();await page.waitForTimeout(2500);
 assert.equal(await page.locator('canvas').count(),2);
 await page.getByLabel('Sensor comparison divider').fill('50');
-await page.waitForTimeout(800);await page.screenshot({path:'tests/desktop-compare.png'});
+await page.waitForTimeout(800);await page.screenshot({path:output+'desktop-compare.png'});
 await page.getByRole('button',{name:/THE SCIENCE$/}).click();
 await page.getByRole('button',{name:'Next perspective'}).click();await page.getByText('Data notes & methodology').click();
-await page.waitForTimeout(800);await page.screenshot({path:'tests/desktop-science.png'});
+await page.waitForTimeout(800);await page.screenshot({path:output+'desktop-science.png'});
 await page.setViewportSize({width:390,height:844});
-await page.getByRole('button',{name:'Hotspot Hunters home'}).click();await page.waitForTimeout(1500);await page.waitForTimeout(800);await page.screenshot({path:'tests/mobile-entry.png'});
+await page.getByRole('button',{name:'Hotspot Hunters home'}).click();await page.waitForTimeout(1500);await page.waitForTimeout(800);await page.screenshot({path:output+'mobile-entry.png'});
 assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
-await page.getByRole('button',{name:/TIME$/}).click();await page.waitForTimeout(800);await page.screenshot({path:'tests/mobile-calendar.png'});
-await page.getByRole('button',{name:/COMPARE$/}).click();await page.waitForTimeout(1200);await page.getByLabel('Sensor comparison divider').fill('30');await page.waitForTimeout(800);await page.screenshot({path:'tests/mobile-compare.png'});
+await page.getByRole('button',{name:/TIME$/}).click();await page.waitForTimeout(800);await page.screenshot({path:output+'mobile-calendar.png'});
+await page.getByRole('button',{name:/COMPARE$/}).click();await page.waitForTimeout(1200);await page.getByLabel('Sensor comparison divider').fill('30');await page.waitForTimeout(800);await page.screenshot({path:output+'mobile-compare.png'});
 await page.getByRole('button',{name:/EXPLORE$/}).click();await page.getByRole('button',{name:'Toggle layer controls'}).click();assert.ok(await page.getByRole('button',{name:'VIIRS',exact:true}).isVisible());
 await page.getByRole('button',{name:'Switch to flat map'}).click();await page.getByRole('button',{name:'Switch to globe'}).click();
-await page.waitForTimeout(800);await page.screenshot({path:'tests/mobile-explorer.png'});
+await page.waitForTimeout(800);await page.screenshot({path:output+'mobile-explorer.png'});
 console.log(JSON.stringify({result:'PASS: desktop/mobile navigation, globe, region search, sensor filters, timeline, calendar, comparison, science, projection controls',errors},null,2));
 const fallbackPage=await browser.newPage({viewport:{width:1440,height:900}});
 await fallbackPage.route('**/services.arcgisonline.com/**',route=>route.abort());
-await fallbackPage.goto('http://127.0.0.1:5173');await fallbackPage.waitForTimeout(4000);
+await fallbackPage.goto(url);await fallbackPage.waitForTimeout(4000);
 assert.ok(await fallbackPage.getByText('Some imagery unavailable',{exact:false}).isVisible());
-await fallbackPage.screenshot({path:'tests/offline-geography.png'});
+await fallbackPage.screenshot({path:output+'offline-geography.png'});
 console.log('PASS: external imagery failure preserves local interactive geography');
-await browser.close();assert.deepEqual(errors,[]);
+assert.deepEqual(errors,[]);
+fs.writeFileSync(output+'result.json', JSON.stringify({status:'pass',errors},null,2));
+} catch(e) {
+await page.screenshot({path:output+'failure.png'});
+fs.writeFileSync(output+'result.json',JSON.stringify({status:'fail',message:e.message,errors},null,2));
+throw e;
+} finally { await browser.close(); }
 
 

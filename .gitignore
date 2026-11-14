@@ -1,4 +1,9 @@
 # Secrets and Environment
+.env
+.env.*
+!.env.example
+.work/
+.manus/
 
 # Python
 __pycache__/

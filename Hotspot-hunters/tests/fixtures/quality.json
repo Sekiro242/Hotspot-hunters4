@@ -1,0 +1,53 @@
+{
+  "requested_start_date": "2026-11-06",
+  "requested_end_date": "2026-11-13",
+  "total_days_in_range": 8,
+  "days_with_data_present": 8,
+  "days_with_zero_detections": 0,
+  "days_missing_or_unobserved": 0,
+  "missing_dates": [],
+  "zero_activity_dates": [],
+  "sensors_analyzed": [
+    "MODIS",
+    "VIIRS"
+  ],
+  "sensor_metrics": {
+    "MODIS": {
+      "sensor": "MODIS",
+      "satellite": "Aqua/Terra",
+      "nominal_resolution_meters": 1000,
+      "total_detections": 575,
+      "active_cell_days": 346,
+      "total_active_days": 8,
+      "low_confidence_count": 29,
+      "nominal_confidence_count": 393,
+      "high_confidence_count": 153,
+      "mean_frp_mw": 26.31,
+      "max_frp_mw": 1562.13
+    },
+    "VIIRS": {
+      "sensor": "VIIRS",
+      "satellite": "NOAA-20",
+      "nominal_resolution_meters": 375,
+      "total_detections": 2695,
+      "active_cell_days": 1009,
+      "total_active_days": 8,
+      "low_confidence_count": 312,
+      "nominal_confidence_count": 2314,
+      "high_confidence_count": 69,
+      "mean_frp_mw": 9.04,
+      "max_frp_mw": 457.16
+    }
+  },
+  "processing_tiers_present": [
+    "NRT"
+  ],
+  "known_limitations": [
+    "Hotspot detections represent thermally anomalous satellite pixels, not confirmed fire incidents or burned area.",
+    "Heavy cloud cover, dense smoke, and heavy canopy cover can obscure surface thermal anomalies.",
+    "MODIS active-fire pixels are nominally 1 km at nadir; VIIRS active-fire pixels are nominally 375 m at nadir.",
+    "Native confidence scales (MODIS 0-100 numeric vs VIIRS low/nominal/high) reflect different detection algorithms.",
+    "Missing observation dates indicate gaps in data availability and must not be interpreted as zero fire activity."
+  ],
+  "harmonization_status": "uncalibrated_raw"
+}

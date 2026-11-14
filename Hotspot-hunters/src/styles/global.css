@@ -1,0 +1,11 @@
+*{box-sizing:border-box}
+body{margin:0}
+button,input,select{font:inherit}
+button,a,input,select{-webkit-tap-highlight-color:transparent}
+button{cursor:pointer;color:inherit;background:none;border:0}
+button:disabled{cursor:default;opacity:.35}
+button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--cyan);outline-offset:5px}
+button{transition:color .2s,background .2s,opacity .2s}
+button:hover{color:white}
+a{color:var(--cyan)}
+

@@ -1,0 +1,87 @@
+{
+  "sensors": [
+    {
+      "id": "MODIS",
+      "name": "Moderate Resolution Imaging Spectroradiometer",
+      "platforms": [
+        "Terra",
+        "Aqua"
+      ],
+      "nominal_pixel_resolution_meters": 1000,
+      "earliest_data": "2000-11-01",
+      "confidence_metric": "numeric (0 - 100)",
+      "description": "Historical 1 km thermal baseline operating aboard Terra and Aqua satellites."
+    },
+    {
+      "id": "VIIRS",
+      "name": "Visible Infrared Imaging Radiometer Suite",
+      "platforms": [
+        "Suomi-NPP",
+        "NOAA-20",
+        "NOAA-21"
+      ],
+      "nominal_pixel_resolution_meters": 375,
+      "earliest_data": "2012-01-20",
+      "confidence_metric": "categorical ('low', 'nominal', 'high')",
+      "description": "High-resolution 375 m thermal sensor with enhanced small-fire sensitivity."
+    }
+  ],
+  "detailed_platforms": {
+    "MODIS_TERRA": {
+      "sensor": "MODIS",
+      "satellite": "Terra",
+      "instrument": "MODIS",
+      "resolution_meters": 1000,
+      "earliest_date": "2000-11-01",
+      "confidence_scale": "0-100",
+      "confidence_type": "numeric",
+      "nrt_source": "MODIS_NRT",
+      "sp_source": "MODIS_SP"
+    },
+    "MODIS_AQUA": {
+      "sensor": "MODIS",
+      "satellite": "Aqua",
+      "instrument": "MODIS",
+      "resolution_meters": 1000,
+      "earliest_date": "2002-07-04",
+      "confidence_scale": "0-100",
+      "confidence_type": "numeric",
+      "nrt_source": "MODIS_NRT",
+      "sp_source": "MODIS_SP"
+    },
+    "VIIRS_SNPP": {
+      "sensor": "VIIRS",
+      "satellite": "Suomi-NPP",
+      "instrument": "VIIRS",
+      "resolution_meters": 375,
+      "earliest_date": "2012-01-20",
+      "confidence_scale": "categorical (low, nominal, high)",
+      "confidence_type": "categorical",
+      "nrt_source": "VIIRS_SNPP_NRT",
+      "sp_source": "VIIRS_SNPP_SP"
+    },
+    "VIIRS_NOAA20": {
+      "sensor": "VIIRS",
+      "satellite": "NOAA-20",
+      "instrument": "VIIRS",
+      "resolution_meters": 375,
+      "earliest_date": "2018-01-05",
+      "confidence_scale": "categorical (low, nominal, high)",
+      "confidence_type": "categorical",
+      "nrt_source": "VIIRS_NOAA20_NRT",
+      "sp_source": "VIIRS_NOAA20_SP"
+    },
+    "VIIRS_NOAA21": {
+      "sensor": "VIIRS",
+      "satellite": "NOAA-21",
+      "instrument": "VIIRS",
+      "resolution_meters": 375,
+      "earliest_date": "2023-01-01",
+      "confidence_scale": "categorical (low, nominal, high)",
+      "confidence_type": "categorical",
+      "nrt_source": "VIIRS_NOAA21_NRT",
+      "sp_source": "VIIRS_NOAA21_NRT"
+    }
+  },
+  "harmonization_notice": "MODIS and VIIRS have different pixel resolutions, detection algorithms, and overpass times. Raw detection counts cannot be directly compared without empirical calibration."
+}
