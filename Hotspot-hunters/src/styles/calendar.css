@@ -1,0 +1,18 @@
+.rhythm{display:flex;height:160px;gap:7px;align-items:flex-end;margin:10px 0 21px}
+.rhythm>button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:10px;padding:0;height:100%;min-width:0}
+.bar-count{font-size:8px;color:#718c95;opacity:0}
+.rhythm button:hover .bar-count,.rhythm button.selected .bar-count{opacity:1}
+.ribbon{width:100%;background:linear-gradient(0deg,#344b4e,#688784);border-radius:15px 15px 2px 2px;transition:height .6s,background .3s}
+.rhythm .selected .ribbon{background:linear-gradient(0deg,#ba6544,#ffc08b);box-shadow:0 0 25px #ffa56812}
+.rhythm .unusual .ribbon{background:linear-gradient(0deg,#913d26,#f18b5e)}
+.month-label{font-size:8px;color:#79939d}
+.selected .month-label{color:var(--amber)}
+.calendar-footer{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid var(--line)}
+.calendar-footer b{font-family:'Space Grotesk';font-size:15px;font-weight:500}
+.calendar-footer span{display:block;font-size:9px;color:#88a0a9;margin-top:6px}
+.fine-print{font-size:9px;line-height:1.7;color:#6d8792;margin-bottom:0}
+.history-chart{height:160px;display:flex;gap:20px;align-items:flex-end;margin:10px 0 21px}
+.history-chart>div{display:flex;flex:1;flex-direction:column;gap:8px;align-items:center;font-size:9px;color:#8da2a8}
+.history-chart i{width:100%;background:linear-gradient(0deg,#315252,#91b9ac);border-radius:2px}
+.history-chart b{font-size:9px;font-weight:400}
+

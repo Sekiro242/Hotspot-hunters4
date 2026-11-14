@@ -1,0 +1,5 @@
+.source-controls{position:absolute;left:3.4%;bottom:48px;z-index:17;display:flex;align-items:center;gap:10px;max-width:85%;font-size:8px;background:#09151dec;border-radius:3px;padding:5px 9px;color:#adbec2}
+.source-controls label{white-space:nowrap;letter-spacing:1px}.source-controls select{background:#12232c;color:#e9eee9;border:1px solid var(--line);margin-left:6px;padding:4px;font-size:9px}
+.source-controls button{border:1px solid var(--line);padding:4px}.source-controls time{color:var(--muted)}.source-controls details p{max-width:360px}
+.observation-card pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:9px}.observation-card dd{overflow-wrap:anywhere}.history-chart small{font-size:7px;text-align:center}
+@media(max-width:700px){.source-controls{left:6%;right:6%;bottom:45px;max-width:none;font-size:7px;flex-wrap:wrap;gap:3px}.source-controls time{display:none}.source-controls select{font-size:8px}.timeline{bottom:97px}.layer-picker{bottom:265px}.source-controls>span{flex:1;min-width:70px}.source-controls details{position:absolute;bottom:100%;background:#0d2029;padding:10px}}

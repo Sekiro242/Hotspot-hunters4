@@ -1,0 +1,3 @@
+export function validDate(value:string){if(!/^\d{4}-\d{2}-\d{2}$/.test(value))return false;const date=new Date(value+'T00:00:00Z');return Number.isFinite(date.getTime())&&date.toISOString().slice(0,10)===value;}
+export function monthRange(year:number,month:number){return {startDate:`${year}-${String(month+1).padStart(2,'0')}-01`,endDate:new Date(Date.UTC(year,month+1,0)).toISOString().slice(0,10)};}
+export function previousRange(start:string,end:string){const days=(Date.parse(end)-Date.parse(start))/86400000+1;const endMs=Date.parse(start)-86400000;return {startDate:new Date(endMs-(days-1)*86400000).toISOString().slice(0,10),endDate:new Date(endMs).toISOString().slice(0,10)};}

@@ -1,0 +1,178 @@
+@media(min-width:1600px){.hero{top:25%}
+.timeline{left:30%;right:25%}
+.scene-sheet{top:25%}
+.science-sheet{top:21%}
+.explore-title{top:29%}
+}
+
+@media(max-height:800px) and (min-width:801px){.hero{top:21%}
+.hero h1{font-size:75px}
+.hero p{margin-bottom:18px}
+.hero .text-action{padding:14px 0}
+.entry-bottom{bottom:75px}
+.scene-sheet{top:23%;padding:22px;width:490px}
+.scene-sheet h2{font-size:28px;margin:14px 0}
+.rhythm,.history-chart{height:125px;margin-bottom:15px}
+.science-sheet{top:22%;max-height:calc(100dvh - 250px)}
+.timeline{bottom:59px;padding:13px 18px 10px}
+.explore-title{top:25%}
+.explore-title h2{font-size:36px}
+.story-links{margin-top:20px}
+}
+
+@media(max-width:1050px){.edition{display:none}
+nav{gap:25px}
+.hero{left:6%;width:430px}
+.hero h1{font-size:80px}
+.globe-caption{right:5%;bottom:28%}
+.timeline{left:28%;right:14%}
+.scene-sheet{left:4%;width:470px}
+.sensor-controls .control-label{display:none}
+.compare-note{right:9%;width:180px}
+.compare-label.left{left:20%}
+}
+
+@media(max-width:700px){.app{min-height:640px}
+.app>header{top:19px;left:6%;right:6%;height:41px}
+.wordmark{font-size:11px;gap:8px}
+.brand-mark{width:31px;height:35px}
+.brand-mark svg{width:21px}
+nav{gap:17px}
+nav button{font-size:8px;letter-spacing:.6px;padding:14px 0}
+.nav-number{display:none}
+nav button.active:after{left:0}
+.earth-stage.entry-earth{left:4%;right:-34%;top:2%;bottom:25%}
+.scene-entry .vignette{background:linear-gradient(0deg,#060c12 8%,#060c12e6 23%,#060c1222 65%,#060c1233 100%)}
+.hero{left:7%;top:auto;bottom:129px;width:86%}
+.hero .eyebrow{font-size:7px;letter-spacing:1.3px}
+.hero h1{font-size:61px;letter-spacing:-3.5px;line-height:.98;margin:19px 0 17px}
+.hero h1 br:nth-child(2){display:none}
+.hero p{font-size:12px;line-height:1.8;max-width:300px;margin-bottom:20px}
+.primary{font-size:9px;padding:15px 17px;min-width:219px}
+.hero .text-action{font-size:8px;padding:17px 0}
+.globe-caption{top:30%;right:7%;bottom:auto;font-size:7px}
+.globe-caption span{font-size:9px}
+.entry-bottom{bottom:62px;left:7%;right:7%;gap:20px}
+.entry-bottom>div{display:none}
+.entry-bottom>button,.drag-hint{font-size:7px}
+.entry-bottom svg{width:13px}
+footer{left:6%;right:6%;height:44px;font-size:6px;letter-spacing:.3px;gap:8px}
+.sensor-legend{display:none}
+footer button{font-size:6px;letter-spacing:.2px;gap:3px}
+.demo-label{gap:5px}
+.explorer-toolbar{left:6%;right:6%;top:83px}
+.location-button{font-size:10px;min-width:0;max-width:270px;width:calc(100% - 50px);padding:12px;gap:10px}
+.mobile-controls{display:grid!important;background:#0b1821ef;border:1px solid var(--line);height:40px}
+.sensor-controls{display:none;position:absolute;right:0;top:47px;background:#0a1822f5;padding:12px;border:1px solid var(--line);border-radius:3px}
+.sensor-controls.expanded{display:flex}
+.sensor-controls button{font-size:9px}
+.search-popover{top:130px;left:6%;width:88%}
+.explore-title{left:7%;top:162px;width:235px}
+.explore-title .eyebrow{font-size:7px;letter-spacing:1px}
+.explore-title h2{font-size:30px;letter-spacing:-1px;margin:15px 0}
+.explore-title p{font-size:11px;line-height:1.7;max-width:210px}
+.story-links{margin-top:20px;max-width:192px}
+.story-links button{padding:12px 0;font-size:10px}
+.story-links span{font-size:7px}
+.map-tools{right:6%;top:37%}
+.icon-button{width:34px;height:35px}
+.map-tools svg{width:16px}
+.timeline{left:6%;right:6%;bottom:61px;padding:14px 15px 10px;border-radius:5px}
+.timeline .eyebrow{font-size:7px;letter-spacing:.6px}
+.calendar-link{font-size:8px}
+.time-selects{gap:0}
+.time-selects select{font-size:11px;padding:4px 0}
+.time-track{gap:11px;margin-top:11px}
+.timeline-bars{gap:3px;height:45px}
+.timeline-bars span{font-size:5px;letter-spacing:0}
+.play-button{width:29px;height:29px}
+.speed{font-size:9px}
+.timeline-foot{font-size:5px;letter-spacing:.2px}
+.layer-picker{bottom:227px;right:6%;padding:5px 8px}
+.layer-picker select{font-size:9px}
+.scene-time .earth-stage,.scene-science .earth-stage{left:0;opacity:.5}
+.scene-sheet{left:6%;width:88%;top:151px;padding:20px;max-height:calc(100dvh - 365px);overflow:auto}
+.scene-sheet .eyebrow{font-size:7px;letter-spacing:1.1px}
+.scene-sheet h2{font-size:28px;margin:16px 0}
+.sheet-heading p{display:none}
+.tabs{gap:22px}
+.tabs button{font-size:8px;padding:11px 0}
+.rhythm{gap:5px;height:134px;margin-top:4px;margin-bottom:15px}
+.ribbon{border-radius:8px 8px 2px 2px}
+.month-label{font-size:7px}
+.bar-count{font-size:6px}
+.calendar-footer b{font-size:13px}
+.calendar-footer span{font-size:8px}
+.fine-print{font-size:8px}
+.scene-time .layer-picker,.scene-science .map-tools{display:none}
+.science-sheet{top:151px}
+.science-sheet h2{font-size:24px}
+.science-diagram{height:100px;gap:12px}
+.sensor-grid{width:83px;height:83px;gap:3px}
+.viirs-grid{gap:2px}
+.diagram-connector{gap:5px}
+.diagram-connector span{width:9px}
+.diagram-connector svg{width:24px}
+.diagram-labels{font-size:7px}
+.science-story h3{font-size:13px}
+.science-story p{font-size:10px}
+.science-pagination{margin:16px 0}
+.scene-science .timeline{opacity:.95}
+.compare-heading{left:7%;top:158px}
+.compare-heading .eyebrow{font-size:6px;letter-spacing:.8px}
+.compare-heading h2{font-size:31px;letter-spacing:-1px;margin:16px 0}
+.compare-note{top:auto;bottom:255px;left:7%;right:auto;width:230px;background:#09151cc9;padding:10px;border-radius:3px}
+.compare-note p{font-size:9px;line-height:1.7}
+.compare-note button{font-size:8px;margin-top:4px}
+.compare-note svg{width:13px}
+.compare-label{bottom:360px;display:block;font-size:10px;letter-spacing:1px}
+.compare-label.left{left:7%}
+.compare-label.right{right:8%}
+.compare-label span{display:block;font-size:7px;margin-top:6px}
+.compare-label i{display:none}
+.split-line{top:330px;bottom:375px}
+.split-slider{top:calc(50% - 40px)}
+.scene-compare .layer-picker{display:none}
+.observation-card{left:6%;right:6%;top:150px;width:auto;padding:22px;max-height:calc(100dvh - 350px);overflow:auto}
+.observation-card h3{font-size:22px}
+.frp{font-size:40px;margin:18px 0}
+dl{gap:12px}
+.maplibregl-ctrl-bottom-right{bottom:45px!important;right:4px!important}
+.maplibregl-ctrl-attrib{font-size:7px!important}
+.map-notice{bottom:47px;right:5%;font-size:6px}
+.map-loading{font-size:7px;text-align:center;line-height:1.7}
+}
+
+
+/* Visual review refinements: keep the calendar clear of playback and preserve mobile headline rhythm. */
+@media(min-width:701px){.calendar-sheet{max-height:calc(77dvh - 240px);overflow:auto;scrollbar-width:thin;scrollbar-color:#32464c transparent}
+.calendar-sheet .rhythm{height:132px}
+.calendar-sheet .history-chart{height:132px}
+}
+
+@media(max-width:700px){.hero h1 br:nth-child(2){display:block}
+.hero h1{font-size:56px}
+.hero{bottom:118px}
+.hero p{max-width:285px}
+.scene-entry .maplibregl-ctrl-bottom-right{bottom:0!important}
+.globe-caption{top:24%}
+}
+
+@media(max-width:700px){.scene-time .map-tools{display:none}
+nav button{min-height:44px}
+.scene-time .scene-sheet{z-index:13}
+}
+
+
+@media(max-width:360px){
+ .wordmark>span:last-child{display:none}
+ .app>header{gap:12px}
+ nav{gap:14px;min-width:0}
+ nav button{white-space:nowrap}
+ .compare-heading h2{font-size:26px;max-width:230px}
+}
+@media(max-width:700px) and (max-height:700px){
+ .compare-label{top:134px;bottom:auto;display:flex;font-size:9px}
+ .compare-label span{display:none}
+ .compare-heading .eyebrow{max-width:230px}
+}

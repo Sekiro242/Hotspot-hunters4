@@ -1,0 +1,14 @@
+.observation-card{position:absolute;right:9%;top:26%;width:305px;background:#0b1821f2;border:1px solid #536a7455;border-radius:5px;padding:26px;z-index:25;backdrop-filter:blur(20px);box-shadow:0 20px 80px #0004;animation:rise .35s both}
+.close{position:absolute;right:6px;top:6px}
+.observation-card h3{font-family:'Space Grotesk';font-weight:400;font-size:24px;margin:19px 0 8px}
+.sensor-tag{font-size:9px;letter-spacing:1px}
+.frp{font-family:'Space Grotesk';font-size:48px;margin:27px 0 22px;display:flex;align-items:center;gap:12px}
+.frp span{font-size:7px;letter-spacing:1px;color:#859fa8;line-height:1.8}
+dl{display:grid;grid-template-columns:1fr 1.5fr;gap:15px 10px;font-size:9px;padding-top:18px;border-top:1px solid var(--line)}
+dt{color:#78939e}
+dd{text-align:right;margin:0;color:#cad7d7}
+.observation-card>p{color:#7d97a1;font-size:9px;line-height:1.6;margin:22px 0 0}
+
+
+.observation-card{max-height:calc(100dvh - 170px);overflow:auto;overscroll-behavior:contain}.observation-card .close{position:sticky;float:right;top:0;background:#132632}
+@media(max-height:700px){.observation-card{top:135px;max-height:calc(100dvh - 150px)}}

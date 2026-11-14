@@ -1,0 +1,31 @@
+.scene-time .earth-stage,.scene-science .earth-stage{left:28%}
+.science-sheet{width:550px;top:20%;max-height:calc(100dvh - 290px);overflow-y:auto;scrollbar-width:thin;scrollbar-color:#32464c transparent}
+.science-sheet h2{font-size:29px}
+.science-diagram{display:flex;align-items:center;justify-content:center;gap:20px;height:128px}
+.sensor-grid{display:grid;width:105px;height:105px;gap:4px;transform:rotate(-7deg);transition:transform .8s}
+.modis-grid{grid-template-columns:repeat(4,1fr)}
+.viirs-grid{grid-template-columns:repeat(8,1fr);gap:2px;transform:rotate(7deg)}
+.sensor-grid i{background:#ffac7133;border:1px solid #ffb3796b}
+.sensor-grid i:nth-child(3n){background:#ffac7199}
+.viirs-grid i{background:#62dfdf22;border:1px solid #62dfdf55}
+.viirs-grid i:nth-child(5n){background:#62dfdfbb}
+.stage-2 .sensor-grid,.stage-3 .sensor-grid{transform:rotate(0)}
+.stage-3 .sensor-grid{border-radius:10px;box-shadow:0 0 30px #9bd8b51a}
+.diagram-connector{display:flex;align-items:center;color:#6e8b92;gap:8px}
+.diagram-connector span{height:1px;width:20px;background:#577078}
+.diagram-labels{display:flex;justify-content:space-around;color:var(--amber);font-size:8px;letter-spacing:1px;margin:8px 0 22px}
+.diagram-labels span:last-child{color:var(--cyan)}
+.science-story{display:flex;gap:18px;animation:rise .4s both}
+.chapter{font-family:'Space Grotesk';font-size:26px;color:#607a84}
+.science-story h3{font-size:15px;margin:3px 0 8px;font-weight:500}
+.science-story p,details p{font-size:11px;line-height:1.85;color:#8ca2ac;margin:0}
+.science-pagination{display:flex;justify-content:space-between;align-items:center;margin:22px 0}
+.science-pagination>div{display:flex;gap:6px}
+.science-pagination>div button{width:22px;height:3px;background:#354850;padding:0}
+.science-pagination>div button.active{background:var(--amber)}
+.science-pagination>button{display:flex;gap:12px;align-items:center;font-size:10px;color:#c5d0cf}
+details{border-top:1px solid var(--line);padding-top:14px;font-size:10px;color:#9eb1b8}
+details summary{cursor:pointer}
+details p{margin:12px 0}
+details a{line-height:2.5}
+

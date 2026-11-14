@@ -1,0 +1,10 @@
+{
+  "total_detections": 3270,
+  "total_active_cell_days": 1195,
+  "modis_detections": 575,
+  "viirs_detections": 2695,
+  "total_frp_mw": 39499.93,
+  "mean_daily_detections": 408.75,
+  "peak_date": "2026-11-11",
+  "peak_detections": 716
+}
